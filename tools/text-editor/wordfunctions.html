@@ -1,0 +1,118 @@
+    <label for="showsettings"><span class="material-icons" id="navtoggle">arrow_drop_down_circle</span></label>
+    <input type="checkbox" onclick="togglenav()" id="showsettings" class="showsettings" role="button">
+    <div id="head" class="head settings">
+      <div class="tabbed">
+        <input type="radio" name="tabs" id="tab-nav-1" checked>
+        <label for="tab-nav-1">File</label>
+        <input type="radio" name="tabs" id="tab-nav-2">
+        <label for="tab-nav-2">Styles</label>
+        <input type="radio" name="tabs" id="tab-nav-3">
+        <label for="tab-nav-3">Text</label>
+        <input type="radio" name="tabs" id="tab-nav-4">
+        <label for="tab-nav-4">Image</label>
+        <input type="radio" name="tabs" id="tab-nav-5">
+        <label for="tab-nav-5">Help</label>
+        <div class="tabs">
+          <div>
+            <div class="save" onclick="save()"><span class="material-icons">save</span></div>
+            <div class="printicon" onclick="printDiv('document')"><span class="material-icons">print</span></div>
+            <div onclick="Export2Word();" class="download"><span class="material-icons">download_for_offline</span></div>
+            <form id="docform" name="form1" method="POST" enctype="multipart/form-data" action="./index.php"><div>
+                <label for="file"><span class="material-icons">upload</span></label>
+                <input onchange="submitdoc()" id="file" class="hidden" type="file" name="doc"/> 
+            </div>
+        </form>
+            <div class="add-button pwa"><span class="material-icons">browser_updated</span></div>
+          </div>
+          <div>
+            <div class="text size select">
+              <label for="size"><span class="material-icons">format_size</span></label>
+              <select onfocusout="styleit(this);" oninput="styleit(this)" id="size">
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option selected value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="24">24</option>
+                <option value="28">28</option>
+                <option value="32">32</option>
+                <option value="40">40</option>
+                <option value="56">56</option>
+                <option value="72">72</option>
+              </select>
+            </div>
+            <div class="text indent select">
+              <label for="indent"><span class="material-icons">format_indent_increase</span></label>
+              <select oninput="styleit(this)" id="indent">
+                <option value="0px">0</option>
+                <option value="4px">4</option>
+                <option selected value="8px">8</option>
+                <option value="12px">12</option>
+                <option value="16px">16</option>
+                <option value="20px">20</option>
+                <option value="24px">24</option>
+                <option value="28px">28</option>
+                <option value="32px">32</option>
+                <option value="36px">36</option>
+                <option value="40px">40</option>
+              </select>
+            </div>
+            <div class="text font select">
+              <label for="font"><span class="material-icons">font_download</span></label>
+              <select oninput="styleit(this)" id="font">
+                <option selected value="Montserrat">Montserrat</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="roboto">Roboto</option>
+                <option value="barcode">barcode</option>
+                <option value="arial">arial</option>
+                <option value="Playfairdisplay">Playfair Display</option>
+                <option value="24px">24</option>
+                <option value="28px">28</option>
+                <option value="32px">32</option>
+                <option value="36px">36</option>
+                <option value="40px">40</option>
+              </select>
+            </div>
+            <div class="color">
+              <input oninput="styleit(this);" onclick="styleit(this);" type="color" id="color" name="color" value="#00000">
+            </div>
+            <div>
+              <div onclick="styleit(this)" id="center" class="center"><span class="material-icons">format_align_center</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="addtext" id="addtext" onclick="addend(this);"><span class="material-icons">text_increase</span></div>
+            <div class="table border">
+              <span class="material-icons">calendar_view_week</span>
+              <select id="rowsinput">
+                <option value="1">1</option>
+                <option selected value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <span  onclick="addTable();" class="material-icons">playlist_add</span>
+            </div>
+            <div onclick="deleteelem();" class="delete"><span class="material-icons">delete_sweep</span></div>
+          </div>
+          <div>
+            <div class="file">
+              <label onclick="file_explorer();" for="image-file" class="custom-file-upload">
+                <span class="material-icons">add_photo_alternate</span>
+              </label>
+              <input id="image-file" accept="image/*" type="file" />
+            </div>
+          </div>
+          <div>
+            <div><a href="./tos/"><span class="material-icons">admin_panel_settings</span></a></div>      
+            <div><a href="./privacy/index.docx"><span class="material-icons">security</span></a></div>
+            <div><a href=""><span class="material-icons">smart_display</span></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
