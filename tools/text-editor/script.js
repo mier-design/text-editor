@@ -131,7 +131,7 @@ function ajax_file_upload(file_obj) {
             let id = oOutput.childElementCount;
             if (xhttp.status == 200) {
                 loader.style.display = "none";
-                oOutput.insertAdjacentHTML("beforeend", "<div class='image' id='" + id + "'><img ontouchstart='phonedrag(this);' onmousedown='dragElement(this)' oncontextmenu='showpopup(this);' src='https://mier.design/tools/text-editor" + this.responseText + "'/></div>");
+                oOutput.insertAdjacentHTML("beforeend", escapeHtml("<div class='image' id='" + id + "'><img ontouchstart='phonedrag(this);' onmousedown='dragElement(this)' oncontextmenu='showpopup(this);' src='https://mier.design/tools/text-editor" + this.responseText + "'/></div>"));
             } else {
                 oOutput.innerHTML = "Error " + xhttp.status + " occurred when trying to upload your file.";
                 loader.style.display = "none";
@@ -146,7 +146,7 @@ function showpopup(f) {
     elmnt = document.getElementById(f.parentNode.id);
     if (elmnt.children.length < 2) {
 
-        elmnt.insertAdjacentHTML("afterbegin", "<div class='column'><div onclick='deleteimage(this.parentNode)' class='editbutton round'><span class='material-icons remove_for_word'>delete</span></div><div onclick='sizes(this.parentNode)' class='editbutton round'><span class='material-icons remove_for_word'>category</span></div><div onclick='blackwhite(this.parentNode)' class='editbutton round'><span class='material-icons remove_for_word'>monochrome_photos</span></div></div>");
+        elmnt.insertAdjacentHTML("afterbegin", escapeHtml("<div class='column'><div onclick='deleteimage(this.parentNode)' class='editbutton round'><span class='material-icons remove_for_word'>delete</span></div><div onclick='sizes(this.parentNode)' class='editbutton round'><span class='material-icons remove_for_word'>category</span></div><div onclick='blackwhite(this.parentNode)' class='editbutton round'><span class='material-icons remove_for_word'>monochrome_photos</span></div></div>"));
     } else {
         elmnt.firstChild.remove();        
     }
