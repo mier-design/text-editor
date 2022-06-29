@@ -1,5 +1,13 @@
 window.onbeforeunload = function() { return "Your work will be lost."; };
-
+function escapeHtml(unsafe)
+{
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
 function Export2Word(filename = 'document_mier.design') {
     var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     var postHtml = "</body></html>";
@@ -365,8 +373,9 @@ function addend() {
                 document.getElementById("active").click();
                 let e = document.getElementById('active');
 
-                var d = document.createElement('div');
-                d.innerHTML = e.value;
+                var d = docume
+                nt.createElement('div');
+                d.innerHTML = escapeHtml(e.value);
                 const att1 = document.createAttribute("id");
                 let td = magicBox.querySelectorAll('td').length;
                 let table = magicBox.querySelectorAll('table').length;
